@@ -34,8 +34,9 @@ export default function FilterMoviesCard(props) {
     useEffect(() => {
         getGenres().then((allGenres) => {
           setGenres([genres[0], ...allGenres]);
-        });    
-    }, []);
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [])
   
     const handleChange = (e, type, value) => {
         e.preventDefault()
@@ -47,6 +48,7 @@ export default function FilterMoviesCard(props) {
     const handleGenreChange = e => {
       handleChange(e, "genre", e.target.value)
     };
+  
   
 
   return (
