@@ -7,13 +7,13 @@ import { getMovie } from "../api/tmdb-api";
 const MovieDetailsPage = (props) => {
   const { id } = props.match.params;
   const [movie, setMovie] = useState(null);
-
+  
   useEffect(() => {
     getMovie(id).then((movie) => {
       setMovie(movie);
     });
-  }, [id]);
-
+  },
+  [id]);
   return (
     <>
       {movie ? (
