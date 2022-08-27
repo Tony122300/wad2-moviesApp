@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
 
+
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
   media: { height: 500 },
@@ -39,6 +40,7 @@ export default function MovieCard({ movie, action }) {
     e.preventDefault();
     addToFavorites(movie);
   };
+
 
   return (
     <Card className={classes.card}>
@@ -85,7 +87,6 @@ export default function MovieCard({ movie, action }) {
       {action(movie)}
       <Link to={`/movies/${movie.id}`}></Link>
       <IconButton aria-label="add to favorites" onClick={handleAddToFavorite}>
-        
     </IconButton>
         <Link to={`/movies/${movie.id}`}>
         <Button variant="outlined" size="medium" color="primary">
@@ -95,4 +96,5 @@ export default function MovieCard({ movie, action }) {
       </CardActions>
     </Card>
   );
+  
 }
