@@ -30,7 +30,7 @@ const SiteHeader = ( { history }) => {
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favorites" },
-    { label: "Option 3", path: "/" },
+    { label: "Upcoming Movies", path: "/movies/upcoming" },
     { label: "Option 4", path: "/" },
   ];
 
@@ -41,13 +41,13 @@ const SiteHeader = ( { history }) => {
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
+//bar position changed to static staying in one place
   return (
     <>
-      <AppBar position="fixed" color="secondary">
+      <AppBar position="static" color="primary">
         <Toolbar>
           <Typography variant="h4" className={classes.title}>
-            TMDB Client
+            Assignment Movie App
           </Typography>
           <Typography variant="h6" className={classes.title}>
             All you ever wanted to know about Movies!
