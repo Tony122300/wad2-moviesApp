@@ -41,6 +41,7 @@ export default function MovieCard({ movie, action }) {
     addToFavorites(movie);
   };
 
+  
 
   return (
     <Card className={classes.card}>
