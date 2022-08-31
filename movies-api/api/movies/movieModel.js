@@ -2,12 +2,17 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
+const MovieReviewSchema = {
+  userName : { type: String},
+  review : {type: String}
+}
 
 const MovieSchema = new Schema({
   adult: { type: Boolean },
   id: { type: Number, required: true, unique: true },
   poster_path: { type: String },
   overview: { type: String },
+  reviews : [MovieReviewSchema],
   release_date: { type: String },
   original_title: { type: String },
   genre_ids: [{ type: Number }],
