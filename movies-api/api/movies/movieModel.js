@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const MovieReviewSchema = {
   userName : { type: String},
   review : {type: String}
-}
+};
 
 const MovieSchema = new Schema({
   adult: { type: Boolean },
