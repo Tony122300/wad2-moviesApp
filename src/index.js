@@ -19,6 +19,7 @@ import PrivateRoute from "./components/privateRoute/index";
 import AuthHeader from "./components/authHeader/index";
 import SignUpPage from "./pages/signUpPage";
 import PlayListPage from "./pages/playList";
+import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -41,9 +42,9 @@ const App = () => {
             {" "}
             <Switch>
               <Route exact path="/movies/playlist" component={PlayListPage}/>
-            <Route exact path="/movies/socials" component={movieDetailsPage} />
             <Route exact path="/movies/popular" component={PopularMoviesPage} />
             <Route exact path="/movies/upcoming" component={UpComingMoviesPage} />
+            <Route exact path="/movies/toprated" component={TopRatedMoviesPage} />
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
             <Route path="/reviews/:id" component={MovieReviewPage} />
             <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />

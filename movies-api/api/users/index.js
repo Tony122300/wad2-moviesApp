@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     res.status(200).json(users);
 });
 
-router.post('/',asyncHandler( async (req, res, next) => {
+  router.post('/',asyncHandler( async (req, res, next) => {
     if (!req.body.username || !req.body.password) {
       res.status(401).json({success: false, msg: 'Please pass username and password.'});
       return next();
@@ -68,26 +68,4 @@ router.post('/:userName/favourites', asyncHandler(async (req, res) => {
     res.status(200).json(user.favourites);
   }));
 
-router.post('/', asyncHandler(async (req, res) => {
-    if (req.query.action === 'register') {  //if action is 'register' then save to DB
-        await User(req.body).save();
-        res.status(201).json({
-            code: 201,
-            msg: 'Successful created new user.',
-        });
-    }
-    else {  //NEW CODE!!!
-        const user = await User.findByUserName(req.body.username);
-        if (user.comparePassword(req.body.password)) {
-            req.session.user = req.body.username;
-            req.session.authenticated = true;
-            res.status(200).json({
-                success: true,
-                token: "temporary-token"
-              });
-        } else {
-            res.status(401).json('authentication failed');
-        }
-    }
-}));
 export default router;
